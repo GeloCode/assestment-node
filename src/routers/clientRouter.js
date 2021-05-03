@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { getClients, getClientById } from '../controllers/clientController';
+import { getClients, getClientById, getClientPoliciesById } from '../controllers/clientController.js';
 
 const clientsRouter = () => {
   const router = express.Router();
@@ -8,6 +8,8 @@ const clientsRouter = () => {
   router.route('/').get(getClients);
 
   router.route('/:id').get(getClientById);
+
+  router.route('/:id/policies').get(getClientPoliciesById);
 
   return router;
 };

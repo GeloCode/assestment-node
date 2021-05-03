@@ -33,18 +33,18 @@ export const getClientById = (req, res) => {
   const { id } = req.params;
   const { user, clients, policies } = req;
 
-  const requiredClient = clients.find((client) => client.id === id);
-  if (requiredClient) {
+  const clientById = clients.find((client) => client.id === id);
+  if (clientById) {
     if (user.role === 'user') {
-      if (user.id === requiredClient.id) {
-        return res.send(clientWithPolicies(requiredClient, policies))
+      if (user.id === clientById.id) {
+        return res.send(clientWithPolicies(clientById, policies))
       }
       return res.status(HTTP_CODES.FORBIDDEN).send({
         code: HTTP_CODES.FORBIDDEN,
         message: `${HTTP_MESSAGES.FORBIDDEN} user`,
     });
     } else {
-      return res.send(clientsWithPolicies([requiredClient], policies));
+      return res.send(clientsWithPolicies([clientById], policies));
     }
   }
   return res.status(HTTP_CODES.NOT_FOUND).send({
@@ -62,7 +62,35 @@ const clientWithPolicies = (client, policies) => {
   return client;
 };
 
+export const getClientPoliciesById = (req, res) => {
+  const { id } = req.params;
+  const { user, clients, policies } = req;
+
+  const clientById = clients.find((client) => client.id === id);
+  if (clientById) {
+    const policiesList = policies.filter(policy => policy.clientId === id);
+
+    if (user.role === 'user') {
+      if (user.id === clientById.id) {
+        return res.send(policiesWithoutClientId(policiesList))
+      }
+      return res.status(HTTP_CODES.FORBIDDEN).send({
+        code: HTTP_CODES.FORBIDDEN,
+        message: `${HTTP_MESSAGES.FORBIDDEN} client's policies`,
+      });
+    } else {
+      return res.send(policiesWithoutClientId(policiesList));
+    }
+}
+  return res.status(HTTP_MESSAGES.NOT_FOUND).send({
+    code: HTTP_MESSAGES.NOT_FOUND,
+    message: `${HTTP_MESSAGES.NOT_FOUND} this client with ID: ${id}`,
+  });
+};
+
 const clientsWithPolicies = (clients, policies) => clients.map(client => clientWithPolicies(client, policies));
+
+const policiesWithoutClientId = (policies) => policies.map(policyWithoutClientId);
 
 const policyWithoutClientId = policy => {
   // eslint-disable-next-line

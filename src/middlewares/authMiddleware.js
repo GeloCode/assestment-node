@@ -1,7 +1,7 @@
 import config from 'config';
 import jwt from 'jsonwebtoken';
 
-import { HTTP_CODES, HTTP_MESSAGES } from '../utils/constants.js';
+import { HTTP_CODES, HTTP_MESSAGES, TOKEN } from '../utils/constants.js';
 
 const authMiddleware = (req, res, next) => {
   const token = req.headers['x-access-token'] || req.headers['authorization'];
@@ -16,10 +16,19 @@ const authMiddleware = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (err) {
-    console.error(err);
-    res
-      .status(HTTP_CODES.BAD_REQUEST)
-      .send(`${HTTP_MESSAGES.BAD_REQUEST}: ${req.baseUrl}`);
+    if (err.name === 'TokenExpiredError') {
+      const { loguedUser } = req.session;
+      const token = jwt.sign(loguedUser, config.get('SECRET_KEY'), {
+        expiresIn: TOKEN.EXPIRES_IN
+      });
+      const decoded = jwt.verify(token, config.get('SECRET_KEY'));
+      req.user = decoded;
+      next();
+    } else {
+      res
+        .status(HTTP_CODES.BAD_REQUEST)
+        .send(`${HTTP_MESSAGES.BAD_REQUEST}: ${req.baseUrl}`);
+    }
   }
 };
 

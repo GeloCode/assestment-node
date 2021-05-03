@@ -12,7 +12,7 @@ const makeRequestToAssestment = (...uris) => {
       });
 
       if (uris && login) {
-        uris.forEach(async uri => {
+        for (const uri of uris) {
           if (uri) {
             const response = await axios.get(uri, {
               headers: {
@@ -26,14 +26,14 @@ const makeRequestToAssestment = (...uris) => {
             } else {
               req.data = response.data;
             }
-            return next();
           } else {
             return res.status(HTTP_CODES.BAD_REQUEST).send({
               code: HTTP_CODES.BAD_REQUEST,
               message: `${HTTP_MESSAGES.BAD_REQUEST}: ${req.baseUrl} no uri provided`
             });
           }
-        });
+        }
+        return next();
       }
     } catch (err) {
       console.error(err);

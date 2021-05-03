@@ -13,7 +13,7 @@ module.exports = {
     NOT_FOUND: 'Not found',
     SERVER_ERROR: 'Something went wrong try it again later.',
     WRONG_TOKEN: `Unauthorized, be sure you're using Bearer authentication, otherwise it won't work`,
-    FORBIDDEN: `Access forbidden for the current`
+    FORBIDDEN: `Access forbidden for this`
   },
   DEFAULT_MESSAGE_VIABLE_URLS: `Node Assestment, viable urls: '/login'`
 };

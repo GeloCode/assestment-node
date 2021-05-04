@@ -14,9 +14,9 @@ import authMiddleware from './middlewares/authMiddleware.js';
 import credentialsCheckMiddleware from './middlewares/credentialsCheckMiddleware.js';
 import makeRequestToAssetmentMiddleware from './middlewares/makeRequestToAssetmentMiddleware.js';
 
-import authRouter from './routers/authRouter.js';
-import clientRouter from './routers/clientRouter.js';
-import policyRouter from './routers/policyRouter.js';
+import authRouter from './routes/authRouter.js';
+import clientRouter from './routes/clientRouter.js';
+import policyRouter from './routes/policyRouter.js';
 
 const app = express();
 const myCache = new NodeCache();

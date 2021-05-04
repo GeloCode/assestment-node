@@ -1,0 +1,10 @@
+{
+  "CLIENT_ID": "dare",
+  "CLIENT_SECRET": "s3cr3t",
+  "CLIENTS_URI": "https://dare-nodejs-assessment.herokuapp.com/api/clients",
+  "LOGIN_URI": "https://dare-nodejs-assessment.herokuapp.com/api/login",
+  "POLICIES_URI": "https://dare-nodejs-assessment.herokuapp.com/api/policies",
+  "PORT": 3000,
+  "SECRET_KEY": "TEST_SECRET",
+  "SECRET_SESSION": "TEST_SESSION"
+}

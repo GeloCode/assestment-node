@@ -1,0 +1,93 @@
+{
+  "total": {
+      "pages": 20
+  },
+  "next": {
+      "page": 2,
+      "limit": 10
+  },
+  "results": [
+      {
+          "id": "a0ece5db-cd14-4f21-812f-966633e7be86",
+          "name": "Britney",
+          "email": "britneyblankenship@quotezart.com",
+          "role": "admin",
+          "policies": {
+              "id": "7b624ed3-00d5-4c1b-9ab8-c265067ef58b",
+              "amountInsured": "399.89",
+              "email": "inesblankenship@quotezart.com",
+              "inceptionDate": "2015-07-06T06:55:49Z",
+              "installmentPayment": true
+          }
+      },
+      {
+          "id": "e8fd159b-57c4-4d36-9bd7-a59ca13057bb",
+          "name": "Manning",
+          "email": "manningblankenship@quotezart.com",
+          "role": "admin",
+          "policies": {
+              "id": "64cceef9-3a01-49ae-a23b-3761b604800b",
+              "amountInsured": "1825.89",
+              "email": "inesblankenship@quotezart.com",
+              "inceptionDate": "2016-06-01T03:33:32Z",
+              "installmentPayment": true
+          }
+      },
+      {
+          "id": "a3b8d425-2b60-4ad7-becc-bedf2ef860bd",
+          "name": "Barnett",
+          "email": "barnettblankenship@quotezart.com",
+          "role": "user",
+          "policies": {}
+      },
+      {
+          "id": "44e44268-dce8-4902-b662-1b34d2c10b8e",
+          "name": "Merrill",
+          "email": "merrillblankenship@quotezart.com",
+          "role": "user",
+          "policies": {}
+      },
+      {
+          "id": "0178914c-548b-4a4c-b918-47d6a391530c",
+          "name": "Whitley",
+          "email": "whitleyblankenship@quotezart.com",
+          "role": "admin",
+          "policies": {}
+      },
+      {
+          "id": "a74c83c5-e271-4ecf-a429-d47af952cfd4",
+          "name": "Lamb",
+          "email": "lambblankenship@quotezart.com",
+          "role": "user",
+          "policies": {}
+      },
+      {
+          "id": "55601290-8619-4f54-b831-9c6c26c52b44",
+          "name": "Ophelia",
+          "email": "opheliablankenship@quotezart.com",
+          "role": "user",
+          "policies": {}
+      },
+      {
+          "id": "1470c601-6833-48a4-85b4-ddab9c045916",
+          "name": "Jerry",
+          "email": "jerryblankenship@quotezart.com",
+          "role": "user",
+          "policies": {}
+      },
+      {
+          "id": "b2cbdea3-5bc6-4e14-8d21-579aba6845b2",
+          "name": "Dina",
+          "email": "dinablankenship@quotezart.com",
+          "role": "admin",
+          "policies": {}
+      },
+      {
+          "id": "f80b6ab6-ef21-4bd9-9d87-bec464e0f60f",
+          "name": "Thelma",
+          "email": "thelmablankenship@quotezart.com",
+          "role": "admin",
+          "policies": {}
+      }
+  ]
+}

@@ -1,5 +1,5 @@
 module.exports = {
-  TOKEN: { EXPIRES_IN: 900, TYPE: 'bearer' },
+  TOKEN: { EXPIRES_IN: 900, TYPE: 'Bearer' },
   HTTP_CODES: {
     UNAUTHORIZED: 401,
     BAD_REQUEST: 400,

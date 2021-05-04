@@ -2,7 +2,7 @@
 
 ### Installation
 
-As it's a NODE application we'll need to have node & npm installed, project's root folder
+Node & npm are a must, go into project's root folder
 
 ```bash
 npm install
@@ -10,7 +10,7 @@ npm install
 
 ### How to run
 
-As right now only has DEV purposes, run the script:
+Run the script:
 
 ```bash
 npm run dev
@@ -18,7 +18,7 @@ npm run dev
 
 ### How to test
 
-We've multiple scripts for testing:
+Scripts for testing:
 
 Execute all tests
 

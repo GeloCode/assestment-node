@@ -6,6 +6,13 @@ export const getClients = (req, res) => {
   const { name } = req.query;
   const { user, clients, policies } = req;
 
+  if (!clients) {
+    return res.status(HTTP_CODES.NOT_FOUND).send({
+      code: HTTP_CODES.NOT_FOUND,
+      message: `Clients: ${HTTP_MESSAGES.NOT_FOUND}`
+    });
+  }
+
   let clientsList;
 
   if (user.role === 'user') {

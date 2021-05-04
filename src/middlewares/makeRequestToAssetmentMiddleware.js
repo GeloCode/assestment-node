@@ -3,7 +3,7 @@ import config from 'config';
 
 import { HTTP_CODES, HTTP_MESSAGES } from '../utils/constants.js';
 
-const makeRequestToAssestment = (cache, ...uris) => {
+const makeRequestToAssessment = (cache, ...uris) => {
   return async (req, res, next) => {
     try {
       const login = await axios.post(config.get('LOGIN_URI'), {
@@ -70,4 +70,4 @@ const makeRequestToAssestment = (cache, ...uris) => {
   };
 };
 
-export default makeRequestToAssestment;
+export default makeRequestToAssessment;

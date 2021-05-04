@@ -26,8 +26,8 @@ const authMiddleware = (req, res, next) => {
       next();
     } else {
       res
-        .status(HTTP_CODES.BAD_REQUEST)
-        .send(`${HTTP_MESSAGES.BAD_REQUEST}: ${req.baseUrl}`);
+        .status(HTTP_CODES.UNAUTHORIZED)
+        .send(`${HTTP_MESSAGES.UNAUTHORIZED}`);
     }
   }
 };

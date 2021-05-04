@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 import { TOKEN, HTTP_CODES, HTTP_MESSAGES } from '../utils/constants.js';
 
-const authController = (req, res) => {
+export const login = (req, res) => {
   const { username, password } = req.body;
 
   const { clients } = req;
@@ -31,5 +31,3 @@ const authController = (req, res) => {
     message: HTTP_MESSAGES.UNAUTHORIZED
   });
 };
-
-export default authController;

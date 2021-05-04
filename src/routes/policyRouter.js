@@ -1,11 +1,11 @@
 import express from 'express';
 
-import { getPoliciesList, getPolicyById } from '../controllers/policyController.js';
+import { getPolicies, getPolicyById } from '../controllers/policyController.js';
 
 const policiesRouter = () => {
   const router = express.Router();
 
-  router.route('/').get(getPoliciesList);
+  router.route('/').get(getPolicies);
   
   router.route('/:id').get(getPolicyById);
 

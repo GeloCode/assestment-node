@@ -15,5 +15,5 @@ module.exports = {
     WRONG_TOKEN: `Unauthorized, be sure you're using Bearer authentication, otherwise it won't work`,
     FORBIDDEN: `Access forbidden for this`
   },
-  DEFAULT_MESSAGE_VIABLE_URLS: `Node Assestment, viable urls: '/login'`
+  DEFAULT_MESSAGE_VIABLE_URLS: `Node Assessment, viable urls: '/login'`
 };

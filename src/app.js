@@ -2,6 +2,7 @@ import bodyParser from 'body-parser';
 import config from 'config';
 import express from 'express';
 import session from 'express-session';
+import { serve, setup } from 'swagger-ui-express';
 import NodeCache from 'node-cache';
 
 import {
@@ -17,6 +18,8 @@ import makeRequestToAssetmentMiddleware from './middlewares/makeRequestToAssetme
 import authRouter from './routes/authRouter.js';
 import clientRouter from './routes/clientRouter.js';
 import policyRouter from './routes/policyRouter.js';
+
+import swaggerDocument from '../swagger.json';
 
 const app = express();
 const myCache = new NodeCache();
@@ -39,6 +42,8 @@ app.use('/login', credentialsCheckMiddleware, makeRequestToAssetmentMiddleware(m
 app.use('/clients', authMiddleware, makeRequestToAssetmentMiddleware(myCache, config.get('CLIENTS_URI'), config.get('POLICIES_URI')), clientRouter());
 
 app.use('/policies', authMiddleware, makeRequestToAssetmentMiddleware(myCache, config.get('POLICIES_URI')), policyRouter());
+
+app.use('/swagger', serve, setup(swaggerDocument));
 
 app.use((req, res) => {
   res

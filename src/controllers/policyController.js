@@ -1,7 +1,7 @@
 import { HTTP_CODES, HTTP_MESSAGES } from '../utils/constants.js';
 import pagination from '../utils/pagination.js';
 
-export const getPoliciesList = (req, res) => {
+export const getPolicies = (req, res) => {
   const { user, policies } = req;
 
   if (!policies) {

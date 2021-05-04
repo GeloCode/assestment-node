@@ -30,6 +30,14 @@ export const getPolicyById = (req, res) => {
   const { id } = req.params;
   const { user, policies  } = req;
 
+
+  if (!policies) {
+    return res.status(HTTP_CODES.NOT_FOUND).send({
+      code: HTTP_CODES.NOT_FOUND,
+      message: `Policies: ${HTTP_MESSAGES.NOT_FOUND}`
+    });
+  }
+
   const policyById = policies.find(policy => policy.id === id);
 
   if (!policyById) {

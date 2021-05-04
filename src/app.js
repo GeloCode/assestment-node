@@ -2,6 +2,7 @@ import bodyParser from 'body-parser';
 import config from 'config';
 import express from 'express';
 import session from 'express-session';
+import NodeCache from 'node-cache';
 
 import {
   HTTP_CODES,
@@ -18,6 +19,7 @@ import clientRouter from './routers/clientRouter.js';
 import policyRouter from './routers/policyRouter.js';
 
 const app = express();
+const myCache = new NodeCache();
 
 app.use(session({
   secret: config.get('SECRET_SESSION'),
@@ -32,11 +34,11 @@ app.get('/', (req, res) => {
   res.send({ message: DEFAULT_MESSAGE_VIABLE_URLS });
 });
 
-app.use('/login', credentialsCheckMiddleware, makeRequestToAssetmentMiddleware(config.get('CLIENTS_URI')), authRouter());
+app.use('/login', credentialsCheckMiddleware, makeRequestToAssetmentMiddleware(myCache, config.get('CLIENTS_URI')), authRouter());
 
-app.use('/clients', authMiddleware, makeRequestToAssetmentMiddleware(config.get('CLIENTS_URI'), config.get('POLICIES_URI')), clientRouter());
+app.use('/clients', authMiddleware, makeRequestToAssetmentMiddleware(myCache, config.get('CLIENTS_URI'), config.get('POLICIES_URI')), clientRouter());
 
-app.use('/policies', authMiddleware, makeRequestToAssetmentMiddleware(config.get('POLICIES_URI')), policyRouter());
+app.use('/policies', authMiddleware, makeRequestToAssetmentMiddleware(myCache, config.get('POLICIES_URI')), policyRouter());
 
 app.use((req, res) => {
   res

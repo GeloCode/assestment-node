@@ -1,13 +1,16 @@
 {
-    "name": "assestment-node",
+    "name": "assessment-node",
     "version": "1.0.0",
     "private": "true",
     "description": "",
     "scripts": {
-        "test": "jest",
-        "test:watch": "jest --watchAll",
+        "dev": "nodemon --exec npx babel-node src/server.js",
+        "test": "jest __test__",
+        "test:watch": "jest __test__ --watchAll",
         "test:coverage": "jest --coverage",
-        "dev": "nodemon --exec npx babel-node src/server.js"
+        "test:unit": "jest __test__/unit/",
+        "test:int": "jest __test__/integration/",
+        "test:e2e": "jest __test__/e2e/"
     },
     "author": "Jesús Inacio",
     "license": "ISC",
@@ -28,7 +31,10 @@
         "axios": "^0.21.1",
         "config": "^3.3.6",
         "express": "^4.17.1",
-        "jsonwebtoken": "8.5.1"
+        "express-session": "^1.17.1",
+        "jsonwebtoken": "8.5.1",
+        "node-cache": "^5.1.2",
+        "swagger-ui-express": "^4.1.6"
     },
     "jest": {
         "testEnvironment": "node",

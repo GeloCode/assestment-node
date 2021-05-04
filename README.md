@@ -16,6 +16,44 @@ As right now only has DEV purposes, run the script:
 npm run dev
 ```
 
+### How to test
+
+We've multiple scripts for testing:
+
+Execute all tests
+
+```bash
+npm run test
+```
+
+Unit
+
+```bash
+npm run test:unit
+```
+
+Integration
+
+```bash
+npm run test:int
+```
+
+E2E
+
+```bash
+npm run test:e2e
+```
+
+Watch
+```bash
+npm run test:watch
+```
+
+Coverage
+```bash
+npm run test:coverage
+```
+
 ### Consume the API
 
 First of all you'll need to login in the next url: http://localhost:3000/login for this you'll need an username & password.
